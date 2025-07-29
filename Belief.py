@@ -380,6 +380,110 @@ a = [1, 3, 5, 7, 9, 11]
 b = [i-1 for i in a]
 print(b)
 
+#an example of set comprehension
+b = {"abc", "def"}
+{s.upper() for s in b}
+
+#this is a dictionary comprehension were we are going to do something for each element in the dictionary
+c = {'name': 'Pooka', 'age': 5}
+{v: k for k, v in c.items()}
+
+#escape characters
+#if you want to go to a new line
+print("Hello there!\nHow are you?\nI\'m doing fine.")
+
+#if you put the letter r to beginning of a string, it becomes a raw string
+#and i raw string completely ignores all escape characters and prints any backslash in the string output
+print(r"That is Carol\'s cat.")
+
+#research about textwrap import dedent
+from textwrap import dedent
+def my_function():
+    print('''
+          dear Alice,
+          
+          Eve's cat has been arrested for catnapping, cat burglary, and extortion
+          
+          sincerely,
+          Bob
+          ''').strip()
+    
+#slicing the string
+spam = 'Hello world! '
+print(spam[0])
+print(spam[0:5])
+print(spam[0:10])
+print(spam[ :5])
+print(spam[6:])
+
+#boolean in strings
+'Hello' in 'Hello World'
+'HELLO' in 'Hello World'
+'cats' not in 'cats and dogs' 
+
+#checking whether a string is in upper or lower case
+spam = 'Hello world'
+spam.islower()
+spam.isupper()
+'HELLO'.islower() 
+'Hello world!'.startswith('Hello')   
+'Hello world!'.endswith('world!') 
+
+#join
+', '.join(['cats', 'rats', 'bats'])
+' '.join(['My', 'name', 'is', 'Simon'])
+
+#split 
+'My name is Simon'.split() #so normally it splits with spaces
+'MyABCnameABCisABCSimon'.split('ABC')  #but you can split with literally anything
+
+#r
+'Hello' .rjust(10) # so here the word will be adjusted such the there are 10 characters output will be '      Hello'
+'Hello' .rjust(20) # so here the word will be adjusted such the there are 10 characters output will be '            Hello'
+'Hello'.rjust(20,'*')
+'Hello'.rjust(20,'-')
+
+#center
+'Hello'.center(20) #this is going to centre the output with in the given number of characters
+'Hello'.center(20, '=')
+
+#strip this removes spaces
+spam = '     Hello World     '
+spam.strip()
+
+#rstrip
+spam.rstrip() #this will just remove the space at the beginning
+
+#lstrip
+spam.lstrip #this will remove the space at the end
+
+
+''' this is for guidance
+spam = 'Hello world'
+print(spam.islower())
+
+print(spam.isupper())
+message = 'HELLO'.islower()
+print(message)
+'''
+
+def box_print(symbol,width, height):
+    if len(symbol) != 1:
+        raise Exception('Symbol must be a single character string.')
+    if width <= 2:
+        raise Exception('Width must be greater than 2.')
+    if height <= 2:
+        raise Exception('Height must be greater than 2.')
+    print(symbol * width)
+    for i in range(height - 2):
+        print(symbol + (' ' * (width - 2)) + symbol)
+    print(symbol * width)
+for sym, w, h in (('*', 4, 4), ('0', 20, 5), ('x', 1, 3), ('zz', 3, 3)):
+    try:
+        box_print(sym,w,h)
+    except Exception as err:
+        print('An exception happened: ' + str(err))      
+
 
 
 
